@@ -89,8 +89,13 @@ export class Filtro2Component implements OnInit {
   }
 
   irAlProducto(id: number): void {
-    this.router.navigate(['/producto', id]);
-    console.log("id: " + id);
+
+
+    if ('startViewTransition' in document) {
+      document.startViewTransition(() => this.router.navigate(['/producto', id]));
+    } else {
+      this.router.navigate(['/producto', id]);
+    }
   }
 
   onCategoryChange(event: any): void {

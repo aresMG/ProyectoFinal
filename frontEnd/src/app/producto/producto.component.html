@@ -14,12 +14,12 @@
   <div class="product-main">
     <div class="product-images">
       <div class="main-image">
-        <img [src]="'/img/' + product?.imagen" alt="Imagen">
+        <img [src]="'/img/' + product?.imagen" alt="Imagen" [attr.view-transition-name]="'producto-img-' + product?.id">
       </div>
     </div>
 
     <div class="product-details">
-      <h1 class="product-title" *ngIf="!editMode">{{ product?.nombre }}</h1>
+      <h1 class="product-title" *ngIf="!editMode" [attr.view-transition-name]="'producto-title-' + product?.id">{{ product?.nombre }}</h1>
       <input *ngIf="editMode" [(ngModel)]="product!.nombre" class="form-control">
 
       <div class="product-id">
